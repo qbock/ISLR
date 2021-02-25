@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import stats
 from single_linear_reg import *
+import pandas as pd
 
 # Generate fake data with linear form
 slope = 3
@@ -15,7 +16,8 @@ for k in x:
     y[count] = intercept + (k * slope) + noise
     count += 1
 
-data = DataSet(x, y)
+mat = np.matrix([x, y]).transpose()
+df = pd.DataFrame(mat, columns=['x', 'y'])
 
 # Get slope, intercept, and stats about the data
 
