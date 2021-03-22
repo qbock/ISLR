@@ -22,13 +22,13 @@ df = pd.DataFrame(mat, columns=['x', 'y'])
 # Get slope, intercept, and stats about the data
 
 x_bar, y_bar = np.mean(x),np.mean(y)
-slope = get_slope(data, x_bar, y_bar)
+slope = get_slope(df, x_bar, y_bar)
 intercept = get_intercept(slope, x_bar, y_bar)
-rss = get_rss(data, intercept, slope)
-rse = get_rse(data, rss)
-slope_se, intercept_se = get_se(data, rse, x_bar)
+rss = get_rss(df, intercept, slope)
+rse = get_rse(df, rss)
+slope_se, intercept_se = get_se(df, rse, x_bar)
 t_stat = get_t_stat(slope, slope_se)
-r_squared = get_r_squared(rss, data, y_bar)
+r_squared = get_r_squared(rss, df, y_bar)
 
 print(f'Slope: {slope} \nIntercept: {intercept} \nRSS: {rss} \nRSE: {rse} \nSlope Standard Error: {slope_se}')
 print(f'Intercept Standard Error: {intercept_se} \nT Statistic: {t_stat} \nR Squared: {r_squared}')
